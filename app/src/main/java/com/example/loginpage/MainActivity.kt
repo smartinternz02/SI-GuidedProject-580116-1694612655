@@ -35,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
@@ -64,14 +65,18 @@ fun MyAppContent() {
     Column(
         modifier= Modifier.run {
             fillMaxSize()
-                .padding(16.dp)
+                .paint(
+                    painterResource(id = R.drawable.login_background),
+                    contentScale = ContentScale.FillBounds
+                )
+
         },
         verticalArrangement = Arrangement.Center,
         horizontalAlignment=Alignment.CenterHorizontally
     ) {
         Image(painter = painterResource(id = R.drawable.profile_pic),
             contentDescription ="Profile Image",
-            modifier=Modifier
+            modifier= Modifier
                 .size(100.dp)
                 .clip(CircleShape)
         )
@@ -105,7 +110,8 @@ fun MyAppContent() {
                 imeAction = ImeAction.Done,
             )
         )
-        Button(onClick = {
+        Button(
+            onClick = {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://www.amazon.in")
             if(intent.resolveActivity(context.packageManager)!=null)
@@ -116,10 +122,37 @@ fun MyAppContent() {
             {
                 Toast.makeText(context,"No web browser is available",Toast.LENGTH_LONG).show()
             }
-
-        }) {
-            Text(text = "Login")
         }
-
+        ) {
+            Text(text = "Amazon")
+        }
+        Button(onClick = {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://www.facebook.com")
+            if(intent.resolveActivity(context.packageManager)!=null)
+            {
+                context.startActivity(intent)
+            }
+            else
+            {
+                Toast.makeText(context,"No web browser is available",Toast.LENGTH_LONG).show()
+            }
+        }) {
+            Text(text = "Facebook")
+        }
+        Button(onClick = {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://www.linkedIn.com")
+            if(intent.resolveActivity(context.packageManager)!=null)
+            {
+                context.startActivity(intent)
+            }
+            else
+            {
+                Toast.makeText(context,"No web browser is available",Toast.LENGTH_LONG).show()
+            }
+        }) {
+            Text(text = "LinkedIn")
+        }
     }
 }
