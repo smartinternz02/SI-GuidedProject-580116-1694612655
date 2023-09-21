@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:translationX="0sp">
+
+    <TextView
+        android:id="@+id/rolltext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AND YOUR ROLL IS..."
+        android:textColor="#F44336"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:translationX="100sp"
+        android:translationY="50sp" />
+
+    <Button
+        android:id="@+id/rollbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="75sp"
+        android:drawableTint="@color/white"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:text="CLICK TO ROLL!!!"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:translationX="110sp"
+        android:translationY="500sp" />
+
+    <ImageView
+        android:id="@+id/diceimg"
+        android:layout_width="match_parent"
+        android:layout_height="433dp"
+        android:src="@drawable/dice" />
+
+</LinearLayout>
